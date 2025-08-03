@@ -8,6 +8,14 @@ from .serializers import ListingSerializer, BookingSerializer
 
 ### LISTINGS CRUD ###
 
+class ListingViewSet(viewsets.ModelViewSet):
+    queryset = Listing.objects.all()
+    serializer_class = ListingSerializer
+
+class BookingViewSet(viewsets.ModelViewSet):
+    queryset = Booking.objects.all()
+    serializer_class = BookingSerializer
+
 @swagger_auto_schema(
     method='get',
     responses={200: ListingSerializer(many=True)}
